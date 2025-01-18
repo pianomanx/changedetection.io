@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
 import time
 from flask import url_for
@@ -8,10 +8,10 @@ from . util import live_server_setup
 def set_original_ignore_response():
     test_return_data = """<html>
        <body>
-     Some initial text</br>
+     Some initial text<br>
      <p>Which is across multiple lines</p>
-     </br>
-     So let's see what happens.  </br>
+     <br>
+     So let's see what happens.  <br>
      </body>
      </html>
 
@@ -22,7 +22,7 @@ def set_original_ignore_response():
 
 
 
-def test_trigger_regex_functionality_with_filter(client, live_server):
+def test_trigger_regex_functionality_with_filter(client, live_server, measure_memory_usage):
 
     live_server_setup(live_server)
     sleep_time_for_fetch_thread = 3
